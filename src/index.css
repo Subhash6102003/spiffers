@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb {
+  background: #111111;
+}
+
+/* Custom baseline typography scale (Smaller and more refined) */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-size: 62.5%; /* 10px base */
+  }
+  body {
+    @apply bg-white text-brand-dark font-body selection:bg-brand-dark selection:text-white;
+    font-size: 1.35rem; /* ~13.5px for crisp, high-end look */
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+  }
+  h1 {
+    @apply font-heading font-black tracking-tighter uppercase text-brand-dark;
+  }
+  h2 {
+    @apply font-heading font-extrabold tracking-tight uppercase text-brand-dark;
+  }
+  h3, h4, h5, h6 {
+    @apply font-heading font-bold tracking-tight uppercase text-brand-dark;
+  }
+}
+
+/* Scroll wheel animation keyframe */
+@keyframes scrollWheel {
+  0% { top: 6px; opacity: 1; }
+  100% { top: 22px; opacity: 0; }
+}
+
+.animate-scroll-wheel {
+  animation: scrollWheel 1.5s infinite;
+}
